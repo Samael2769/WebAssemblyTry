@@ -2,7 +2,7 @@
  * @ Author: Samael
  * @ Create Time: 2023-06-27 06:29:58
  * @ Modified by: Samael
- * @ Modified time: 2023-06-27 06:50:05
+ * @ Modified time: 2023-06-29 06:28:43
  * @ Description:
  */
 
@@ -16,6 +16,21 @@ int main() {
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, 0);
     std::cout << "Hello World!\n" << std::endl;
 
+    //create a square
+    SDL_Rect rect;
+    rect.x = 0;
+    rect.y = 0;
+    rect.w = 100;
+    rect.h = 100;
+
+    //set color
+    SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+
+    //render rect
+    SDL_RenderFillRect(renderer, &rect);
+
+
+
     bool isRunning = true;
     while (isRunning) {
         SDL_Event event;
@@ -26,6 +41,7 @@ int main() {
 
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
+        SDL_RenderFillRect(renderer, &rect);
         SDL_RenderPresent(renderer);
     }
 
